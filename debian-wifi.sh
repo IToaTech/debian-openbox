@@ -34,7 +34,7 @@ apt-get install network-manager rfkill
 #wifi-qr
 
 # Funcion Salir
-fn_exit()
+fn_exit();
 
 echo
 echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
