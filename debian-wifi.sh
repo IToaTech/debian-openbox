@@ -18,11 +18,14 @@ set -o nounset
 
 # Si no se esta ejecutando en una terminal, salir del script
 [[ -t 0 && -t 1 && -t 2 ]] || { echo "$0: Este script debe ejecutarse desde una terminal" >&2; exit 1; }
-echo "Ejecutando en un terminal"
 
 # Si se ejecuta en un TTY, deshabilita que la pantalla obscurezca
 [[ "$TERM" = "linux" ]] && setterm -blank 0
-echo "Ejecutando en un terminal : $TERM (oscurecimiento de pantalla desactivado)"
+
+echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desactivado)"
+
+# Funcion Salir
+fn_exit()
 
 echo
 echo "2. Instalar paquetes necesarios"
@@ -30,10 +33,16 @@ echo "----------------------------------------------------------------------"
 apt-get install network-manager rfkill
 #wifi-qr
 
+# Funcion Salir
+fn_exit()
+
 echo
 echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
 echo "----------------------------------------------------------------------"
 lspci -k | grep -EA3 "Network|Wireless"
+
+# Funcion Salir
+fn_exit()
 
 echo
 echo "4. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
@@ -77,3 +86,23 @@ nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
                                                print "\n1) Seleccionaste la red: " array[var_Opcion,0];
                                                print "La seguridad es tipo: " array[var_Opcion,1]; }'
 
+
+
+
+
+
+function fn_exit() {
+   echo
+   echo "Proceso terminado, ¿continuar? [Y,n]"
+   read input
+   if [[ $input == "Y" || $input == "y" ]]; then
+      echo
+      echo "Script continua ejecucion..."
+      echo
+   else
+      echo
+      echo "Script cancela ejecucion...";
+      echo
+      exit;
+   fi
+}
