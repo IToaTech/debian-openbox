@@ -38,6 +38,7 @@ function fn_exit() {
       echo
       echo "Script cancela ejecucion...";
       echo
+      printf "${NC}${INC}"
       exit;
    fi
 }
