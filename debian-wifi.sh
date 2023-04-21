@@ -24,39 +24,44 @@ echo "Ejecutando en un terminal"
 [[ "$TERM" = "linux" ]] && setterm -blank 0
 echo "Ejecutando en un terminal : $TERM (oscurecimiento de pantalla desactivado)"
 
+
 echo
-echo "2. Identificar dispositivos de red PCI (ethernet y wireless)"
+echo "2. Instalar paquetes necesarios"
+echo "----------------------------------------------------"
+apt-get install wifi-qr rfkill
+
+
+echo
+echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
 echo "----------------------------------------------------"
 lspci -k | grep -EA3 "Network|Wireless"
 
 echo
-echo "3. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
+echo "4. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
 echo "----------------------------------------------------"
 lsusb | grep -EA3 "Network|Wireless"
 
 echo
-echo "4. Checar el nombre de la interface de red Wireless"
+echo "5. Checar el nombre de la interface de red Wireless"
 echo "----------------------------------------------------"
 ip link show
 
 echo
-echo "5. Velocidad de las tarjetas de Red activas (root)"
+echo "6.Verificar que el dispositivo no este bloqueado"
+echo "----------------------------------------------------"
+/sbin/rfkill list
+
+
+echo
+echo "7. Velocidad de las tarjetas de Red activas (root)"
 echo "----------------------------------------------------"
 dmesg | grep "flow"
 dmesg | grep "NIC"
 
 
 echo
-echo "6. Instalar paquetes necesarios"
-echo
-
-apt-get install wifi-qr
-
-
-echo
-echo "7. Escanear las redes WiFi"
-echo
-
+echo "8. Escanear las redes WiFi"
+echo "----------------------------------------------------"
 nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
                                              { array[counter,0]=$2;
                                                array[counter,1]=$16;
