@@ -54,6 +54,13 @@ echo
 echo "7. Verificar bloqueo de dispositivos de red"
 echo "----------------------------------------------------------------------"
 /sbin/rfkill list
+# Falta: comprobacion de dispositovs bloqueados
+
+echo
+echo "8. Instalacion de drivers de dispositivos de red"
+echo "----------------------------------------------------------------------"
+# Falta: identificar marca y modelo
+# Falta: instrucciones de instalacion de drivers segun el modelo
 
 echo
 echo "12. Escanear las redes WiFi"
