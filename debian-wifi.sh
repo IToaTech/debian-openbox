@@ -26,7 +26,7 @@ clear
 # Funcion
 function fn_exit() {
    echo
-   printf "${PBlanco}${IMagenta}"
+   printf "${PNaranja}${IRojo}"
    echo "Proceso terminado, ¿continuar? [Y,n]"
    read input
    if [[ $input == "Y" || $input == "y" ]]; then
@@ -43,6 +43,8 @@ function fn_exit() {
    fi
 }
 
+# Color reset
+printf "${NC}${INC}"
 
 # Instrucciones para ejecutar este script
 echo
