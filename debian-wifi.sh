@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Funcion
+function fn_exit() {
+   echo
+   echo "Proceso terminado, ¿continuar? [Y,n]"
+   read input
+   if [[ $input == "Y" || $input == "y" ]]; then
+      echo
+      echo "Script continua ejecucion..."
+      echo
+   else
+      echo
+      echo "Script cancela ejecucion...";
+      echo
+      exit;
+   fi
+}
+
+
 # Instrucciones para ejecutar este script
 echo
 echo "Instrucciones:"
@@ -25,7 +43,7 @@ set -o nounset
 echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desactivado)"
 
 # Funcion Salir
-fn_exit()
+fn_exit
 
 echo
 echo "2. Instalar paquetes necesarios"
@@ -34,7 +52,7 @@ apt-get install network-manager rfkill
 #wifi-qr
 
 # Funcion Salir
-fn_exit();
+fn_exit
 
 echo
 echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
@@ -42,7 +60,7 @@ echo "----------------------------------------------------------------------"
 lspci -k | grep -EA3 "Network|Wireless"
 
 # Funcion Salir
-fn_exit()
+fn_exit
 
 echo
 echo "4. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
@@ -85,24 +103,3 @@ nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
                                                getline var_Opcion <"/dev/tty";
                                                print "\n1) Seleccionaste la red: " array[var_Opcion,0];
                                                print "La seguridad es tipo: " array[var_Opcion,1]; }'
-
-
-
-
-
-
-function fn_exit() {
-   echo
-   echo "Proceso terminado, ¿continuar? [Y,n]"
-   read input
-   if [[ $input == "Y" || $input == "y" ]]; then
-      echo
-      echo "Script continua ejecucion..."
-      echo
-   else
-      echo
-      echo "Script cancela ejecucion...";
-      echo
-      exit;
-   fi
-}
