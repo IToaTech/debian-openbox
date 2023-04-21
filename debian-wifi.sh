@@ -59,6 +59,7 @@ echo "----------------------------------------------------------------------"
 echo
 echo "8. Instalacion de drivers de dispositivos de red"
 echo "----------------------------------------------------------------------"
+# Falta: Preguntar si hay algun disposito que no se reconoce
 # Falta: identificar marca y modelo
 # Falta: instrucciones de instalacion de drivers segun el modelo
 
