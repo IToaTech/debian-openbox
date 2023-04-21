@@ -8,10 +8,10 @@ echo "El equipo solo debe tener instalado un sistema 'Debian Base'"
 echo
 echo "Este script esta configurado para ejecutarse en una shell-bash"
 echo "Este script sirve de apoyo para configurar la conexion de WiFi mediante la linea de comandos CLI"
-echo "------------------------------------------------------------------------------------------------------"
+echo "===================================================================================================="
 echo
 echo "1. Verificar que el entorno es apropiado para la ejecucion"
-echo
+echo "----------------------------------------------------"
 
 # No aceptar variables sin registro
 set -o nounset
@@ -25,7 +25,36 @@ echo "Ejecutando en un terminal"
 echo "Ejecutando en un terminal : $TERM (oscurecimiento de pantalla desactivado)"
 
 echo
-echo "2. "
+echo "2. Identificar dispositivos de red PCI (ethernet y wireless)"
+echo "----------------------------------------------------"
+lspci -k | grep -EA3 "Network|Wireless"
+
+echo
+echo "3. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
+echo "----------------------------------------------------"
+lsusb | grep -EA3 "Network|Wireless"
+
+echo
+echo "4. Checar el nombre de la interface de red Wireless"
+echo "----------------------------------------------------"
+ip link show
+
+echo
+echo "5. Velocidad de las tarjetas de Red activas (root)"
+echo "----------------------------------------------------"
+dmesg | grep "flow"
+dmesg | grep "NIC"
+
+
+echo
+echo "6. Instalar paquetes necesarios"
+echo
+
+apt-get install wifi-qr
+
+
+echo
+echo "7. Escanear las redes WiFi"
 echo
 
 nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
