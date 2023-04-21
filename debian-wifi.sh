@@ -41,25 +41,22 @@ echo "----------------------------------------------------------------------"
 lsusb | grep -EA3 "Network|Wireless"
 
 echo
-echo "5. Checar el nombre de la interface de red Wireless"
+echo "5. Identificar drivers de red incorporados al kernel"
+echo "----------------------------------------------------------------------"
+dmesg | grep -EA3 "Network|Wireless|wlan"
+
+echo
+echo "6. Checar el nombre de la interface de red Wireless"
 echo "----------------------------------------------------------------------"
 ip link show
 
 echo
-echo "6.Verificar que el dispositivo no este bloqueado"
+echo "7. Verificar bloqueo de dispositivos de red"
 echo "----------------------------------------------------------------------"
 /sbin/rfkill list
 
-
 echo
-echo "7. Velocidad de las tarjetas de Red activas (root)"
-echo "----------------------------------------------------------------------"
-dmesg | grep "flow"
-dmesg | grep "NIC"
-
-
-echo
-echo "8. Escanear las redes WiFi"
+echo "12. Escanear las redes WiFi"
 echo "----------------------------------------------------------------------"
 nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
                                              { array[counter,0]=$2;
