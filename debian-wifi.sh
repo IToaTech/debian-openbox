@@ -15,7 +15,7 @@ NC='\033[39m'
 IGris='\033[100m'		# 8 Gris oscuro
 IRojo='\033[101m'		# 7 Luz roja
 IVerde='\033[102m'		# 6 Verde claro
-IAmarillo='\033[103m'		# 5 Amarillo
+INaranja='\033[103m'		# 5 Amarillo
 IAzul='\033[104m'		# 4 Azul claro
 IMagenta='\033[105m'		# 3 Morado claro
 ICian='\033[106m'		# 2 Verde azulado
@@ -26,7 +26,7 @@ clear
 # Funcion
 function fn_exit() {
    echo
-   printf "${PNaranja}${IRojo}"
+   printf "${PBlanco}${IRojo}"
    echo "Proceso terminado, ¿continuar? [Y,n]"
    read input
    if [[ $input == "Y" || $input == "y" ]]; then
