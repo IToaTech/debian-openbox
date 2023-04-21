@@ -1,14 +1,39 @@
 #!/bin/bash
 
+# Definimos colores, primer plano
+PNegro='\033[30m'		# 1
+PRojo='\033[31m'		# 2
+PVerde='\033[32m'		# 3
+PNaranja='\033[33m'		# 4
+PAzul='\033[34m'		# 5
+PMagenta='\033[35m'		# 6
+PCian='\033[36m'		# 7
+PGris='\033[37m'		# 8
+PBlanco='\e[37m'		# 9
+NC='\033[39m'
+# Colores de fondo, video inverso o segundo plano
+IGris='\033[100m'		# 8 Gris oscuro
+IRojo='\033[101m'		# 7 Luz roja
+IVerde='\033[102m'		# 6 Verde claro
+IAmarillo='\033[103m'		# 5 Amarillo
+IAzul='\033[104m'		# 4 Azul claro
+IMagenta='\033[105m'		# 3 Morado claro
+ICian='\033[106m'		# 2 Verde azulado
+IBlanco='\033[107m'		# 1 Blanco
+INC='\033[40m'
+clear
+
 # Funcion
 function fn_exit() {
    echo
+   printf "${PRojo}${IAmarillo}"
    echo "Proceso terminado, ¿continuar? [Y,n]"
    read input
    if [[ $input == "Y" || $input == "y" ]]; then
       echo
       echo "Script continua ejecucion..."
       echo
+      printf "${NC}${INC}"
    else
       echo
       echo "Script cancela ejecucion...";
