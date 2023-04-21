@@ -26,7 +26,7 @@ clear
 # Funcion
 function fn_exit() {
    echo
-   printf "${PRojo}${IAmarillo}"
+   printf "${PBlanco}${IMagenta}"
    echo "Proceso terminado, ¿continuar? [Y,n]"
    read input
    if [[ $input == "Y" || $input == "y" ]]; then
