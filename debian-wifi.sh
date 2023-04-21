@@ -27,7 +27,8 @@ echo "Ejecutando en un terminal : $TERM (oscurecimiento de pantalla desactivado)
 echo
 echo "2. Instalar paquetes necesarios"
 echo "----------------------------------------------------------------------"
-apt-get install wifi-qr rfkill
+apt-get install network-manager rfkill
+#wifi-qr
 
 echo
 echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
