@@ -58,7 +58,7 @@ echo "==========================================================================
 echo
 
 # Color Titulo
-printf "${PBlanco}${INaranja}"
+printf "${PNegro}${IBlanco}"
 echo "1. Verificar que el entorno es apropiado para la ejecucion"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
@@ -78,7 +78,7 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 fn_exit
 
 echo
-printf "${PBlanco}${INaranja}"
+printf "${PNegro}${IBlanco}"
 echo "2. Instalar paquetes necesarios"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
@@ -89,7 +89,9 @@ apt-get install network-manager rfkill
 fn_exit
 
 echo
+printf "${PNegro}${IBlanco}"
 echo "3. Identificar dispositivos de red PCI (ethernet y wireless)"
+printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 lspci -k | grep -EA3 "Network|Wireless"
 
@@ -97,12 +99,16 @@ lspci -k | grep -EA3 "Network|Wireless"
 fn_exit
 
 echo
+printf "${PNegro}${IBlanco}"
 echo "4. Identificar dispositivos de red conectados por usb (ethernet y wireless)"
+printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 lsusb | grep -EA3 "Network|Wireless"
 
 echo
+printf "${PNegro}${IBlanco}"
 echo "5. Identificar drivers de red incorporados al kernel"
+printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 dmesg | grep -EA3 "Network|Wireless|wlan"
 
