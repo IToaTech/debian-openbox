@@ -58,7 +58,9 @@ echo "==========================================================================
 echo
 
 # Color Titulo
-printf "${PBlanco}${IGris}"; echo "1. Verificar que el entorno es apropiado para la ejecucion"; printf "${NC}${INC}"
+printf "${PBlanco}${IGris}"
+echo "1. Verificar que el entorno es apropiado para la ejecucion"
+printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 
 # No aceptar variables sin registro
@@ -76,7 +78,9 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 fn_exit
 
 echo
-printf "${PBlanco}${IGris}"; echo "2. Instalar paquetes necesarios"; printf "${NC}${INC}"
+printf "${PBlanco}${IGris}"
+echo "2. Instalar paquetes necesarios"
+printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 apt-get install network-manager rfkill
 #wifi-qr
