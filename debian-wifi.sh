@@ -4,9 +4,10 @@
 PNegro='\033[30m'		# 1
 PRojo='\033[31m'		# 2
 PVerde='\033[32m'		# 3
-PNaranja='\033[33m'		# 4
+PNaranja='\033[33m'	# 4
 PAzul='\033[34m'		# 5
-PMagenta='\033[35m'		# 6
+PMagenta='\033[35m'	# 6
+PDrkMagn='\033[45m'
 PCian='\033[36m'		# 7
 PGris='\033[37m'		# 8
 PBlanco='\e[37m'		# 9
@@ -26,7 +27,7 @@ clear
 # Funcion
 function fn_exit() {
    echo
-   printf "${PBlanco}${IRojo}"
+   printf "${PBlanco}${PDrkMagn}"
    echo "Proceso terminado, ¿continuar? [Y,n]"
    read input
    if [[ $input == "Y" || $input == "y" ]]; then
