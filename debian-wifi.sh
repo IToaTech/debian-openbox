@@ -56,7 +56,9 @@ echo "Este script esta configurado para ejecutarse en una shell-bash"
 echo "Este script sirve de apoyo para configurar la conexion de WiFi mediante la linea de comandos CLI"
 echo "===================================================================================================="
 echo
-echo "1. Verificar que el entorno es apropiado para la ejecucion"
+
+# Color Titulo
+printf "${PBlanco}${IGris}"; echo "1. Verificar que el entorno es apropiado para la ejecucion"; printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 
 # No aceptar variables sin registro
@@ -74,7 +76,7 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 fn_exit
 
 echo
-echo "2. Instalar paquetes necesarios"
+printf "${PBlanco}${IGris}"; echo "2. Instalar paquetes necesarios"; printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 apt-get install network-manager rfkill
 #wifi-qr
