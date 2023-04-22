@@ -58,7 +58,7 @@ echo "==========================================================================
 echo
 
 # Color Titulo
-printf "${PBlanco}${IGris}"
+printf "${PBlanco}${INaranja}"
 echo "1. Verificar que el entorno es apropiado para la ejecucion"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
@@ -78,7 +78,7 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 fn_exit
 
 echo
-printf "${PBlanco}${IGris}"
+printf "${PBlanco}${INaranja}"
 echo "2. Instalar paquetes necesarios"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
