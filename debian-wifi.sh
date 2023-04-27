@@ -50,8 +50,8 @@ printf "${NC}${INC}"
 # Instrucciones para ejecutar este script
 echo
 echo "Instrucciones:"
-echo "Este script se ejecuta >_bash <archivo_script.sh>"
 echo "El equipo solo debe tener instalado un sistema 'Debian Base'"
+echo "Este script se ejecuta >_bash <archivo_script.sh>"
 echo
 echo "Este script esta configurado para ejecutarse en una shell-bash"
 echo "Este script sirve de apoyo para configurar la conexion de WiFi mediante la linea de comandos CLI"
@@ -83,7 +83,9 @@ printf "${PNegro}${IBlanco}"
 echo "2. Instalar paquetes necesarios"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
-apt-get install network-manager rfkill
+var_apps="network-manager rfkill"
+echo "Se instalaran los paquetes: " $var_apps
+apt-get install $var_apps
 #wifi-qr
 
 # Funcion Salir
