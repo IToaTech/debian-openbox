@@ -85,6 +85,7 @@ printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 var_apps="network-manager rfkill"
 echo "Se instalaran los paquetes: " $var_apps
+echo
 apt-get install $var_apps
 #wifi-qr
 
