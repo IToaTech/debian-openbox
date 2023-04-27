@@ -12,6 +12,7 @@ PCian='\033[36m'		# 7
 PGris='\033[37m'		# 8
 PBlanco='\e[37m'		# 9
 NC='\033[39m'
+
 # Colores de fondo, video inverso o segundo plano
 IGris='\033[100m'		# 8 Gris oscuro
 IRojo='\033[101m'		# 7 Luz roja
@@ -28,9 +29,8 @@ clear
 function fn_exit() {
    echo
    printf "${PMagenta}"
-   echo "Proceso terminado, ¿continuar? [Y,n]"
-   read input
-   if [[ $input == "Y" || $input == "y" ]]; then
+   read -p "Proceso terminado, ¿continuar? [S,N]: " input
+   if [[ $input == "S" || $input == "s"  || $input == "Y" || $input == "y" ]]; then
       echo
       echo "Script continua ejecucion..."
       echo
