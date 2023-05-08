@@ -29,14 +29,14 @@ clear
 function fn_exit() {
    echo
    printf "${PMagenta}"
+   echo "______________________________"
    read -p "Proceso terminado, ¿continuar? [S,N]: " input
    if [[ $input == "S" || $input == "s"  || $input == "Y" || $input == "y" ]]; then
-      echo
       echo "Script continua ejecucion..."
+      echo "______________________________"
       echo
       printf "${NC}${INC}"
    else
-      echo
       echo "Script cancela ejecucion...";
       echo
       printf "${NC}${INC}"
@@ -78,6 +78,7 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 # Funcion Salir
 fn_exit
 
+# Instalar paquetes
 echo
 printf "${PNegro}${IBlanco}"
 echo "2. Instalar paquetes necesarios"
