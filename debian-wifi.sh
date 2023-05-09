@@ -29,11 +29,11 @@ clear
 function fn_exit() {
    echo
    printf "${PMagenta}"
-   echo "______________________________"
+   echo "__________________________________________________"
    read -p "Proceso terminado, ¿continuar? [S,N]: " input
    if [[ $input == "S" || $input == "s"  || $input == "Y" || $input == "y" ]]; then
       echo "Script continua ejecucion..."
-      echo "______________________________"
+      echo "__________________________________________________"
       echo
       printf "${NC}${INC}"
    else
@@ -59,7 +59,7 @@ echo "==========================================================================
 echo
 
 # Color Titulo
-printf "${PNegro}${IBlanco}"
+printf "${PNegro}${IBlanco}%s"
 echo "1. Verificar que el entorno es apropiado para la ejecucion"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
