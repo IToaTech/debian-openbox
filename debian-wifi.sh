@@ -78,13 +78,6 @@ echo "Script se ejecuta en un terminal: $TERM (oscurecimiento de pantalla desact
 # Funcion Salir
 fn_exit
 
-
-# Borrar scripts descargados anteriores
-echo "2. Eliminar scripts anteriores descargados"
-echo "----------------------------------------------------------------------"
-rm main.*
-
-
 # Instalar paquetes
 echo
 printf "${PNegro}${IBlanco}"
