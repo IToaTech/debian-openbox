@@ -186,7 +186,7 @@ nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
 echo
 echo "13. Escanear las redes WiFi - iwlist"
 echo "----------------------------------------------------------------------"
-iwlist scan | grep -e "ESSID" -e "IEEE"
+iwlist scan $var_DevWiFi | grep -e "ESSID" -e "IEEE"
 echo "Escriba el nombre de la Red WiFi (Presione ENTER)"
 read var_WiFiESSID
 echo "Escriba el nombre de la seguridad de la Red WiFi (Presione ENTER)"
