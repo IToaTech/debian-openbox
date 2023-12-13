@@ -128,7 +128,7 @@ echo "6. Checar el nombre de la interface de red Wireless"
 echo "----------------------------------------------------------------------"
 ip link show
 echo "Escribir el nombre de la interface de red Wireless:"
-getline var_DevWiFi <"/dev/tty";
+getline var_DevWiFi <"/dev/tty"
 
 # Funcion Salir
 fn_exit
