@@ -172,7 +172,8 @@ fn_exit
 echo
 echo "12. Escanear las redes WiFi"
 echo "----------------------------------------------------------------------"
-nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
+#nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
+iwlist scan | awk -F ":" 'BEGIN {counter=1;}
                                              { array[counter,0]=$2;
                                                array[counter,1]=$16;
                                                print counter " | " array[counter,0] " | " array[counter,1];
