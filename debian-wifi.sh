@@ -30,7 +30,7 @@ function fn_exit() {
    echo
    printf "${PMagenta}"
    echo "__________________________________________________"
-   read -p "Proceso terminado, ¿continuar? [S,N]: " input
+   read -p "¿Continuar? [S,N]: " input
    if [[ $input == "S" || $input == "s"  || $input == "Y" || $input == "y" ]]; then
       echo "Script continua ejecucion..."
       echo "__________________________________________________"
@@ -84,7 +84,7 @@ printf "${PNegro}${IBlanco}"
 echo "2. Instalar paquetes necesarios"
 printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
-var_apps="network-manager rfkill"
+var_apps="network-manager net-tools wireless-tools rfkill"
 echo "Se instalaran los paquetes: " $var_apps
 echo
 apt-get install $var_apps
@@ -110,6 +110,9 @@ printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 lsusb | grep -EA3 "Network|Wireless"
 
+# Funcion Salir
+fn_exit
+
 echo
 printf "${PNegro}${IBlanco}"
 echo "5. Identificar drivers de red incorporados al kernel"
@@ -117,10 +120,18 @@ printf "${NC}${INC}"
 echo "----------------------------------------------------------------------"
 dmesg | grep -EA3 "Network|Wireless|wlan"
 
+# Funcion Salir
+fn_exit
+
 echo
 echo "6. Checar el nombre de la interface de red Wireless"
 echo "----------------------------------------------------------------------"
 ip link show
+echo "Escribir el nombre de la interface de red Wireless:"
+getline var_DevWiFi <"/dev/tty";
+
+# Funcion Salir
+fn_exit
 
 echo
 echo "7. Verificar bloqueo de dispositivos de red"
@@ -128,12 +139,28 @@ echo "----------------------------------------------------------------------"
 /sbin/rfkill list
 # Falta: comprobacion de dispositovs bloqueados
 
+# Funcion Salir
+fn_exit
+
 echo
 echo "8. Instalacion de drivers de dispositivos de red"
 echo "----------------------------------------------------------------------"
 # Falta: Preguntar si hay algun disposito que no se reconoce
 # Falta: identificar marca y modelo
 # Falta: instrucciones de instalacion de drivers segun el modelo
+
+
+echo
+echo "9. Verificar si "nmcli" tiene control de dispositivos de red wireless"
+echo "----------------------------------------------------------------------"
+nmcli dev show $var_DevWiFi
+
+echo "Si la configuracion aparece como 'unmanaged', es casi seguro que no existen archivos de configuracion:"
+ls /etc/NetworkManager/system-connections/
+
+# Funcion Salir
+fn_exit
+
 
 echo
 echo "12. Escanear las redes WiFi"
