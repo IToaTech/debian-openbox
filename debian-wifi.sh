@@ -170,10 +170,9 @@ nmcli dev set $var_DevWiFi managed yes
 fn_exit
 
 echo
-echo "12. Escanear las redes WiFi"
+echo "12. Escanear las redes WiFi - nmcli"
 echo "----------------------------------------------------------------------"
-#nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
-iwlist scan | awk -F ":" 'BEGIN {counter=1;}
+nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
                                              { array[counter,0]=$2;
                                                array[counter,1]=$16;
                                                print counter " | " array[counter,0] " | " array[counter,1];
@@ -183,3 +182,13 @@ iwlist scan | awk -F ":" 'BEGIN {counter=1;}
                                                getline var_Opcion <"/dev/tty";
                                                print "\n1) Seleccionaste la red: " array[var_Opcion,0];
                                                print "La seguridad es tipo: " array[var_Opcion,1]; }'
+
+echo
+echo "13. Escanear las redes WiFi - iwlist"
+echo "----------------------------------------------------------------------"
+iwlist scan | grep -e "ESSID" -e "IEEE"
+echo "Escriba el nombre de la Red WiFi (Presione ENTER)"
+read var_WiFiESSID
+echo "Escriba el nombre de la seguridad de la Red WiFi (Presione ENTER)"
+read var_WiFiSec
+
