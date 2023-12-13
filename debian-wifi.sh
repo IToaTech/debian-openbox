@@ -161,6 +161,13 @@ ls /etc/NetworkManager/system-connections/
 # Funcion Salir
 fn_exit
 
+echo
+echo "10. Si la configuracion anterior esta como 'unmanaged', se va ejecutar la siguiente orden:
+echo "----------------------------------------------------------------------"
+nmcli dev set $var_DevWiFi managed yes
+
+# Funcion Salir
+fn_exit
 
 echo
 echo "12. Escanear las redes WiFi"
