@@ -19,16 +19,23 @@ Para descargar estos scripts en Linux-Debian, ejecutar los siguientes comandos:
 # Ejecutar toda la linea
 >_ directorio="/home/scripts"; if [ -d "$directorio" ]; then echo "El directorio existe."; else echo "El directorio no existe. Creándolo..." && mkdir "$directorio"; fi; cd "/home/scripts"
 
-# Descargar scripts y actualizarlos
->_ nano debian-openbox-update.sh
+# Script git-hub (crear)
+>_ nano /home/scripts/debian-openbox-scripts-update.sh
 
-# Escribir el siguiente script
-url_git="https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip"
->_wget "$url_git"
->_unzip main.zip
->_cd debian-openbox-main
->_chmod +x *.sh
+# Pegar las siguientes lineas
+url_git_main="https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip"
+wget "$url_git_main"
+unzip main.zip
+chmod +x /home/scripts/debian-openbox-main/*.sh
 
-# configurar la conexion WiFi
->_bash ./debian-wifi.sh
+# Script git-hub (permiso ejecucion)
+>_ chmod +x /home/scripts/debian-openbox-scripts-update.sh
+
+# Script git-hub (actualizar archivos git-hub)
+# suponiendo que estamos en el directorio "/home/scripts"
+>_ sh ./debian-openbox-scripts-update.sh
+
+# Script git-hub (configurar la conexion WiFi)
+# suponiendo que estamos en el directorio "/home/scripts"
+>_ bash ./debian-openbox-main/debian-wifi.sh
 
