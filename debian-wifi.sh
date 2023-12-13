@@ -162,7 +162,7 @@ ls /etc/NetworkManager/system-connections
 fn_exit
 
 echo
-echo "10. Si la configuracion anterior esta como 'unmanaged', se va ejecutar la siguiente orden:
+echo "10. Si la configuracion anterior esta como 'unmanaged', se va ejecutar la siguiente orden:"
 echo "----------------------------------------------------------------------"
 nmcli dev set $var_DevWiFi managed yes
 
