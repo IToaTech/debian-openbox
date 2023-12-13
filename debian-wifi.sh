@@ -192,3 +192,5 @@ read var_WiFiESSID
 echo "Escriba el nombre de la seguridad de la Red WiFi (Presione ENTER)"
 read var_WiFiSec
 
+echo "Los datos escritos son los siguientes (Presione ENTER)"
+echo "Red WiFi: " $var_WiFiESSID " - Seguridad: " $var_WiFiSec
