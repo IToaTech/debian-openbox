@@ -23,6 +23,7 @@ Para descargar estos scripts en Linux-Debian, ejecutar los siguientes comandos:
 >_ nano /home/scripts/debian-openbox-scripts-update.sh
 
 # Pegar las siguientes lineas
+rm main.*
 url_git_main="https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip"
 wget "$url_git_main"
 unzip main.zip
