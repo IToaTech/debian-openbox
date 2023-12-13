@@ -19,8 +19,12 @@ Para descargar estos scripts en Linux-Debian, ejecutar los siguientes comandos:
 # Ejecutar toda la linea
 >_ directorio="/home/scripts"; if [ -d "$directorio" ]; then echo "El directorio existe."; else echo "El directorio no existe. Creándolo..." && mkdir "$directorio"; fi; cd "/home/scripts"
 
-# Descargar scripts
->_wget https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip
+# Descargar scripts y actualizarlos
+>_ nano debian-openbox-update.sh
+
+# Escribir el siguiente script
+url_git="https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip"
+>_wget "$url_git"
 >_unzip main.zip
 >_cd debian-openbox-main
 >_chmod +x *.sh
