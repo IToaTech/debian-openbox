@@ -156,7 +156,7 @@ echo "----------------------------------------------------------------------"
 nmcli dev show $var_DevWiFi
 
 echo "Si la configuracion aparece como 'unmanaged', es casi seguro que no existen archivos de configuracion:"
-ls /etc/NetworkManager/system-connections/
+ls /etc/NetworkManager/system-connections
 
 # Funcion Salir
 fn_exit
