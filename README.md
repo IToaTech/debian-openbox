@@ -3,7 +3,6 @@ Instalacion / Configuracion de OpenBox en Linux Debian
 
 Conjunto de scripts para instalacion un entorno de escritorio basado en OpenBox.
 
-
 La instalacion de Linux-Debian debe ser sistema base.
 
 El equipo debe estar conectado a internet, preferentemente desde un dispositivo Ethernet.
@@ -11,16 +10,16 @@ El equipo debe estar conectado a internet, preferentemente desde un dispositivo 
 Para descargar estos scripts en Linux-Debian, ejecutar los siguientes comandos:
 
 # Actualizacion del sistema base
->_apt-get update
->_apt-get upgrade
->_apt-get dist-upgrade
+>_ apt-get update && apt-get upgrade && apt-get dist-upgrade
 
->_apt-get install wget unzip
+# Instalar utilerias (wget y unzip)
+>_ apt-get install wget unzip
 
->_cd /home/
->_mkdir /home/scripts
->_cd /home/scripts
+# Crear los directorios
+# Ejecutar toda la linea
+>_ directorio="/home/scripts"; if [ -d "$directorio" ]; then echo "El directorio existe."; else echo "El directorio no existe. Creándolo..." && mkdir "$directorio"; fi; cd "/home/scripts"
 
+# Descargar scripts
 >_wget https://github.com/IToaTech/debian-openbox/archive/refs/heads/main.zip
 >_unzip main.zip
 >_cd debian-openbox-main
