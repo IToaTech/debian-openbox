@@ -214,7 +214,8 @@ sed -i '$ s/.$//' /home/scripts/$var_WiFiESSID.cfg
 
 # Agregar las líneas adicionales al archivo de configuración
 echo "scan_ssid=1" >> /home/scripts/$var_WiFiESSID.cfg
-echo "key_mgmt=WPA-PSK }" >> /home/scripts/$var_WiFiESSID.cfg
+echo "key_mgmt=WPA-PSK" >> /home/scripts/$var_WiFiESSID.cfg
+echo "}" >> /home/scripts/$var_WiFiESSID.cfg
 
 echo "La configuración se ha guardado en: " $var_WiFiESSID.cfg
 
