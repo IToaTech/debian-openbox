@@ -130,6 +130,9 @@ ip link show
 echo "Escribir el nombre de la interface de red Wireless:"
 read var_DevWiFi
 
+echo "Encender la interface de red Wireless"
+ifup $var_DevWiFi
+
 # Funcion Salir
 fn_exit
 
