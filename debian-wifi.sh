@@ -207,13 +207,15 @@ echo
 echo "15. Crear achivo de configuracion de red WiFi"
 echo "----------------------------------------------------------------------"
 # Crear un archivo de configuración temporal utilizando wpa_passphrase
-wpa_passphrase $var_WiFiESSID $var_WiFiPass | grep -E -v '(^#|^$)' > /home/scripts/$var_WiFiESSID.cfg
+wpa_passphrase $var_WiFiESSID $var_WiFiPass | sed -n -e '/^psk=/,/^}/p' | grep -E -v '(^#|^$)' > /home/scripts/$var_WiFiESSID.cfg
 
 # Agregar las líneas adicionales al archivo de configuración
 echo "scan_ssid=1" >> /home/scripts/$var_WiFiESSID.cfg
 echo "key_mgmt=WPA-PSK" >> /home/scripts/$var_WiFiESSID.cfg
 
 echo "La configuración se ha guardado en: " $var_WiFiESSID.cfg
+
+# Falta componer este script
 
 # Funcion Salir
 fn_exit
