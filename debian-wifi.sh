@@ -224,11 +224,8 @@ echo "----------------------------------------------------------------------"
 # Comando para iniciar el Dispositivo Wireless
 echo "ifup $var_DevWiFi" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
 
-# Comando para conectar a red WiFi
-echo "/sbin/wpa_supplicant -i $var_DevWiFi -c /home/scripts/$var_WiFiESSID.cfg -d" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
-
-# Comando para obtener ip por server dhcp
-echo "/sbin/dhclient -v $var_DevWiFi" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
+# Comando para conectar a red WiFi y obtener IP
+echo "/sbin/wpa_supplicant -i $var_DevWiFi -c /home/scripts/$var_WiFiESSID.cfg -d & /sbin/dhclient -v $var_DevWiFi" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
 
 # Permiso para ejecucion
 chmod +x /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
