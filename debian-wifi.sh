@@ -210,7 +210,7 @@ echo "----------------------------------------------------------------------"
 wpa_passphrase $var_WiFiESSID $var_WiFiPass | grep -E -v '(^#|^$)' > /home/scripts/$var_WiFiESSID.cfg
 
 # Eliminar caracter llave
-sed -i '$ s/.$//'
+sed -i '$ s/.$//' /home/scripts/$var_WiFiESSID.cfg
 
 # Agregar las líneas adicionales al archivo de configuración
 echo "scan_ssid=1" >> /home/scripts/$var_WiFiESSID.cfg
