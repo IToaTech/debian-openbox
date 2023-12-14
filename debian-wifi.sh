@@ -219,10 +219,10 @@ echo
 echo "16. Crear script para conexion de red WiFi"
 echo "----------------------------------------------------------------------"
 # Comando para conectar a red WiFi
-echo "/sbin/wpa_supplicant -c /home/scripts/$var_WiFiESSID.cfg -i $var_DevWiFi" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
+"/sbin/wpa_supplicant -c /home/scripts/$var_WiFiESSID.cfg -i $var_DevWiFi" > /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
 
 # Comando para obtener ip por server dhcp
-echo "/sbin/dhclient -v $var_DevWiFi" >> /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
+"/sbin/dhclient -v $var_DevWiFi" > /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
 
 # Permiso para ejecucion
 chmod +x /home/scripts/Conexion_WiFi_$var_WiFiESSID.sh
