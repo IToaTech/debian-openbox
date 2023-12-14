@@ -186,11 +186,31 @@ nmcli -f ALL -t dev wifi | awk -F ":" 'BEGIN {counter=1;}
 echo
 echo "13. Escanear las redes WiFi - iwlist"
 echo "----------------------------------------------------------------------"
-iwlist scan $var_DevWiFi | grep -e "ESSID" -e "IEEE"
+iwlist $var_DevWiFi scan | grep -e "ESSID" -e "IEEE"
 echo "Escriba el nombre de la Red WiFi (Presione ENTER)"
 read var_WiFiESSID
 echo "Escriba el nombre de la seguridad de la Red WiFi (Presione ENTER)"
 read var_WiFiSec
+echo "Escriba el password de la Red WiFi (Presione ENTER)"
+read var_WiFiPass
 
 echo "Los datos escritos son los siguientes (Presione ENTER)"
 echo "Red WiFi: " $var_WiFiESSID " - Seguridad: " $var_WiFiSec
+
+# Funcion Salir
+fn_exit
+
+echo
+echo "15. Crear achivo de configuracion de red WiFi"
+echo "----------------------------------------------------------------------"
+# Crear un archivo de configuración temporal utilizando wpa_passphrase
+wpa_passphrase $var_WiFiESSID $var_WiFiPass | grep -E -v '(^#|^$)' > /home/scripts/$var_WiFiESSID.cfg
+
+# Agregar las líneas adicionales al archivo de configuración
+echo "scan_ssid=1" >> /home/scripts/$var_WiFiESSID.cfg
+echo "key_mgmt=WPA-PSK" >> /home/scripts/$var_WiFiESSID.cfg
+
+echo "La configuración se ha guardado en: " $var_WiFiESSID.cfg
+
+# Funcion Salir
+fn_exit
